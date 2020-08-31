@@ -4,16 +4,18 @@ import SignIn from './pages/Signin';
 import SignUp from './pages/Signup';
 import GlobalStyle from './styles/global';
 
-import AuthContext from './context/AuthContext';
+import {AuthProvider} from './context/AuthContext';
 
-const App: React.FC = () => (
-  <>
-    <AuthContext.Provider value={{ name: 'Max' }}>
-      <SignIn></SignIn>
-    </AuthContext.Provider>
+const App: React.FC = () => {
+  return (
+    <>
+      <AuthProvider>
+        <SignIn></SignIn>
+      </AuthProvider>
 
-    <GlobalStyle></GlobalStyle>
-  </>
-);
+      <GlobalStyle></GlobalStyle>
+    </>
+  );
+};
 
 export default App;
